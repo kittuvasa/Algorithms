@@ -34,12 +34,13 @@ def bin_packing_best_fit(arr, capacity):
     bin_used = 0
     bins = []
     for element in arr:
-        loc, minimum = -5, 0
+        loc, minimum = -5, 10000000000
         for index, i in enumerate(bins):
             if i >= element and i != 0:
                 diff = i - element
                 if diff <= minimum:
                     loc = index
+                    minimum = diff
         if loc == -5:
             bin_used += 1
             bins.append(c - element)
